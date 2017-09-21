@@ -36,7 +36,7 @@ import {
   ViewContainerRef,
   ViewEncapsulation,
 } from '@angular/core';
-import {DateAdapter} from '@angular/material/core';
+import {DateAdapter, MATERIAL_COMPATIBILITY_MODE} from '@angular/material/core';
 import {MdDialog, MdDialogRef} from '@angular/material/dialog';
 import {DOCUMENT} from '@angular/platform-browser';
 import {Subject} from 'rxjs/Subject';
@@ -86,6 +86,7 @@ export const MD_DATEPICKER_SCROLL_STRATEGY_PROVIDER = {
   },
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  viewProviders: [{provide: MATERIAL_COMPATIBILITY_MODE, useValue: true}],
 })
 export class MdDatepickerContent<D> implements AfterContentInit {
   datepicker: MdDatepicker<D>;

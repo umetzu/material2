@@ -58,6 +58,7 @@ import {MdDatepickerIntl} from './datepicker-intl';
   },
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  viewProviders: [{provide: MATERIAL_COMPATIBILITY_MODE, useValue: true}],
 })
 export class MdCalendar<D> implements AfterContentInit, OnDestroy {
   private _intlChanges: Subscription;
@@ -132,7 +133,6 @@ export class MdCalendar<D> implements AfterContentInit, OnDestroy {
   constructor(private _elementRef: ElementRef,
               private _intl: MdDatepickerIntl,
               private _ngZone: NgZone,
-              @Optional() @Inject(MATERIAL_COMPATIBILITY_MODE) public _isCompatibilityMode: boolean,
               @Optional() private _dateAdapter: DateAdapter<D>,
               @Optional() @Inject(MD_DATE_FORMATS) private _dateFormats: MdDateFormats,
               changeDetectorRef: ChangeDetectorRef) {

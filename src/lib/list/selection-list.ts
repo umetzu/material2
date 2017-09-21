@@ -82,7 +82,7 @@ const FOCUSED_STYLE: string = 'mat-list-item-focus';
   templateUrl: 'list-option.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{provide: MATERIAL_COMPATIBILITY_MODE, useValue: false}],
+  viewProviders: [{provide: MATERIAL_COMPATIBILITY_MODE, useValue: true}],
 })
 export class MdListOption extends _MdListOptionMixinBase
     implements AfterContentInit, OnDestroy, FocusableOption, CanDisableRipple {

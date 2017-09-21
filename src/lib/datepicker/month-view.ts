@@ -17,7 +17,10 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
-import {DateAdapter, MD_DATE_FORMATS, MdDateFormats} from '@angular/material/core';
+import {
+  DateAdapter, MATERIAL_COMPATIBILITY_MODE, MD_DATE_FORMATS,
+  MdDateFormats
+} from '@angular/material/core';
 import {MdCalendarCell} from './calendar-body';
 import {createMissingDateImplError} from './datepicker-errors';
 
@@ -35,6 +38,7 @@ const DAYS_PER_WEEK = 7;
   templateUrl: 'month-view.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  viewProviders: [{provide: MATERIAL_COMPATIBILITY_MODE, useValue: true}],
 })
 export class MdMonthView<D> implements AfterContentInit {
   /**

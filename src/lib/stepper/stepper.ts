@@ -26,7 +26,7 @@ import {FormControl, FormGroupDirective, NgForm} from '@angular/forms';
 import {
   defaultErrorStateMatcher,
   ErrorOptions,
-  ErrorStateMatcher,
+  ErrorStateMatcher, MATERIAL_COMPATIBILITY_MODE,
   MD_ERROR_GLOBAL_OPTIONS,
 } from '@angular/material/core';
 import {MdStepHeader} from './step-header';
@@ -104,7 +104,9 @@ export class MdStepper extends _MdStepper {
     ])
   ],
   providers: [{provide: MdStepper, useExisting: MdHorizontalStepper}],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  preserveWhitespaces: false,
+  viewProviders: [{provide: MATERIAL_COMPATIBILITY_MODE, useValue: true}],
 })
 export class MdHorizontalStepper extends MdStepper { }
 
@@ -127,6 +129,7 @@ export class MdHorizontalStepper extends MdStepper { }
     ])
   ],
   providers: [{provide: MdStepper, useExisting: MdVerticalStepper}],
+  viewProviders: [{provide: MATERIAL_COMPATIBILITY_MODE, useValue: true}],
   encapsulation: ViewEncapsulation.None
 })
 export class MdVerticalStepper extends MdStepper { }

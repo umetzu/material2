@@ -19,7 +19,7 @@ import {
   ViewEncapsulation,
   ChangeDetectionStrategy,
 } from '@angular/core';
-import {MdLine, MdLineSetter} from '@angular/material/core';
+import {MATERIAL_COMPATIBILITY_MODE, MdLine, MdLineSetter} from '@angular/material/core';
 import {CanDisableRipple, mixinDisableRipple} from '@angular/material/core';
 
 // Boilerplate for applying mixins to MdList.
@@ -130,6 +130,7 @@ export class MdListSubheaderCssMatStyler {}
   templateUrl: 'list-item.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  viewProviders: [{provide: MATERIAL_COMPATIBILITY_MODE, useValue: true}],
 })
 export class MdListItem extends _MdListItemMixinBase implements AfterContentInit, CanDisableRipple {
   private _lineSetter: MdLineSetter;
