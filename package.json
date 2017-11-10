@@ -1,5 +1,5 @@
 {
-  "name": "material2-srcs",
+  "name": "@angular/material",
   "description": "Material Design components for Angular",
   "homepage": "https://github.com/angular/material2",
   "bugs": "https://github.com/angular/material2/issues",
